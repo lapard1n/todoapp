@@ -100,11 +100,10 @@ function dragAndDrop() {
     listContainer.insertBefore(draggingItem, nextSibling);
   });
 
-  listContainer.addEventListener("drag", (e) => {
-    e.preventDefault()
-
+  document.addEventListener('dragover', (e) => {
     const draggingItem = document.querySelector(".task_dragging");
     const scrollSpeed = draggingItem.offsetHeight * 2;
+
     function windowScroll(speed) {
       window.scrollBy({
         top: speed,
@@ -118,9 +117,7 @@ function dragAndDrop() {
     } else if (e.clientY > heightsForScroll.gapBot) {
       windowScroll(scrollSpeed);
     }
-  });
-
-  listContainer.addEventListener("dragenter", (e) => e.preventDefault());
+  })
 }
 
 /**
